@@ -1,0 +1,4 @@
+PASSWORD: ''
+WEB_SOCKET_SERVER_PORT: 4455
+KTOR_SERVER_PORT: 3000
+OBS_PATH: C:\Program Files\obs-studio\bin\64bit\obs64.exe

@@ -1,0 +1,18 @@
+# Build native executable using GraalVM Native Image
+
+native-image ^
+  -jar "C:\Users\band1\IdeaProjects\OBS_Webhook\build\libs\OBS_Webhook-1.0.0.jar" ^
+  -H:Name=OBS_Webhook ^
+  -H:Path="C:\Users\band1\IdeaProjects\OBS_Webhook\native" ^
+  --no-fallback ^
+  --enable-native-access=ALL-UNNAMED ^
+  -H:ReflectionConfigurationResources=META-INF/native-image/reflect-config.json ^
+  --initialize-at-build-time=org.slf4j.simple.SimpleLogger,org.slf4j.simple.SimpleLoggerConfiguration,org.slf4j.simple.OutputChoice,org.slf4j.simple.OutputChoice$OutputChoiceType ^
+  "-H:NativeLinkerOption=/link" ^
+  "-H:NativeLinkerOption=C:\Users\band1\IdeaProjects\OBS_Webhook\app.res"
+
+
+
+# Create resource file for Windows executable
+
+& "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" /fo app.res app.rc
